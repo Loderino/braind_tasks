@@ -32,7 +32,6 @@ def create_figure(x_size, y_size, type):
 
         # Вычисляем стороны треугольника
         sides = [math.sin(math.radians(angle)) for angle in angles]
-        print(sides)
         scale = min(x_size, y_size) / (max(sides)*1.5)
         sides = [side * scale for side in sides]
 
@@ -82,8 +81,3 @@ def point_in_triangle(point, triangle):
     has_pos = (d1 > 0) or (d2 > 0) or (d3 > 0)
 
     return not (has_neg and has_pos)
-
-# Пример использования
-#print(create_figure(32, 32, "square"))
-#print(create_figure(64, 32, "circle"))
-print(create_figure(64, 32, "triangle"))
