@@ -10,7 +10,7 @@ function is_circle($matrix, $active_pixels)
 */
 {
     $matrix_symbols_count = count($matrix, COUNT_RECURSIVE) - count($matrix);
-    if ($matrix_symbols_count==$active_pixels) return false; 
+    if ($matrix_symbols_count==$active_pixels || $matrix_symbols_count-2*$active_pixels==-1) return false; 
     else{
         if (count($matrix) != count($matrix[0])) return false;
         if (array_reverse($matrix) != $matrix) return false;
@@ -33,10 +33,9 @@ function is_square($matrix){
 На матрице присутствует квадрат, если матрица, отражённая по горизонтали и вертикали равна исходной матрице (симметрична по диагонали).
 */
     $mirrored_matrix = array_reverse($matrix);
-    foreach($mirrored_matrix as $line){
-        $line = array_reverse($line);
+    for ($i=0; $i<count($mirrored_matrix); $i++){
+        $mirrored_matrix[$i] = array_reverse($mirrored_matrix[$i]);
     }
-
     if ($matrix==$mirrored_matrix) return true;
     return false;
     
