@@ -37,9 +37,11 @@ function create_announcement($text, $link) {
     return $result;
 }
 
+## сначала считываем ссылку на статью
 $link = fgets(STDIN);
 $article_text = "";
 
+## Затем считываем текст статьи
 while ($line = fgets(STDIN)) {
     $article_text .= $line;
 }
